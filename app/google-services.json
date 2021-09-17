@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "594333303133",
+    "firebase_url": "https://mgesi-e4a83-default-rtdb.firebaseio.com",
+    "project_id": "mgesi-e4a83",
+    "storage_bucket": "mgesi-e4a83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594333303133:android:1eea168d98ed834f22a8b4",
+        "android_client_info": {
+          "package_name": "com.techspekle.mgesi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594333303133-9a6j0ia99u3d2kl0cuov4fndjqje0q78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbaJJEjKNA0D0Sxy_tFnFuwxs5BFyakC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594333303133-9a6j0ia99u3d2kl0cuov4fndjqje0q78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594333303133:android:7bdd0e8d420206fc22a8b4",
+        "android_client_info": {
+          "package_name": "com.techspekle.vaccinecard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594333303133-9a6j0ia99u3d2kl0cuov4fndjqje0q78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbaJJEjKNA0D0Sxy_tFnFuwxs5BFyakC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594333303133-9a6j0ia99u3d2kl0cuov4fndjqje0q78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

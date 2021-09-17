@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LandingActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <LinearLayout
+        android:id="@+id/topBarner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/landing_background"
+        android:orientation="vertical"
+        android:padding="100dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline6"
+        app:layout_constraintRight_toRightOf="@id/guideline7"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="@string/identification"
+            android:drawableEnd="@drawable/ic_schedule"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="@string/ids_type"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="@string/ids_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/midContent"
+        app:layout_constraintTop_toBottomOf="@id/topBarner"
+        app:layout_constraintBottom_toTopOf="@id/bottom_tag"
+        app:layout_constraintLeft_toLeftOf="@id/guideline6"
+        app:layout_constraintRight_toRightOf="@id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_type"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/id_type"
+            android:textColorHint="@color/primary"
+            app:boxStrokeColor="@color/primary"
+            app:layout_constraintLeft_toLeftOf="@id/guideline6"
+            app:layout_constraintRight_toRightOf="@id/guideline7"
+            app:layout_constraintTop_toBottomOf="@id/midContent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/ids_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:inputType="none"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_number"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/id_number"
+            android:textColorHint="@color/primary"
+            app:boxStrokeColor="@color/primary"
+            app:layout_constraintLeft_toLeftOf="@id/guideline6"
+            app:layout_constraintRight_toRightOf="@id/guideline7"
+            app:layout_constraintTop_toBottomOf="@id/id_type"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_id_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/extra3"
+                android:hint="@string/id_number"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:padding="20dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+   <LinearLayout
+       android:id="@+id/bottom_tag"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@id/midContent"
+       app:layout_constraintLeft_toLeftOf="@id/guideline6"
+       app:layout_constraintRight_toRightOf="@id/guideline7"
+       app:layout_constraintBottom_toTopOf="@id/guideline9"
+       android:orientation="vertical">
+
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/next_button"
+           android:layout_width="220dp"
+           android:padding="16dp"
+           android:textColor="@color/white"
+           android:layout_height="wrap_content"
+           android:text="@string/next"
+           android:drawableRight="@drawable/ic_next"
+           android:textAllCaps="false"
+           android:fontFamily="@font/extra3"
+           android:backgroundTint="@color/primaryShade"
+           android:textSize="18sp"/>
+
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/login_button"
+           android:layout_width="220dp"
+           android:padding="16dp"
+           android:layout_height="wrap_content"
+           android:text="@string/login"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           android:fontFamily="@font/extra3"
+           android:backgroundTint="@color/primary"
+           android:drawableRight="@drawable/ic__login"
+           android:textSize="18sp"/>
+
+
+   </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
