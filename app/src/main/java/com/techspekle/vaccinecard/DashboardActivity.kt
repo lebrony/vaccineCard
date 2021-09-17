@@ -1,30 +1,26 @@
 package com.techspekle.vaccinecard
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.DatePicker
-import android.widget.LinearLayout
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.view.marginRight
+import androidx.core.view.setMargins
+import androidx.core.view.setPadding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.techspekle.vaccinecard.databinding.ActivityDashboardBinding
 import java.time.Month
 import java.util.*
 
-class DashboardActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
-
-    var day = 0
-    var month = 0
-    var year = 0
-
-    var savedDay = 0
-    var savedMonth = 0
-    var savedYear = 0
-
+class DashboardActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDashboardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +32,7 @@ class DashboardActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListene
         districtFun()
         streetFun()
         hopsitalFun()
-
-        pickDate()
-
+        monthRadioButtons()
         binding.scheduleButton.setOnClickListener {
             val bottomSheetDialog = BottomSheetDialog(
                 this@DashboardActivity, R.style.BottomSheetDialogTheme
@@ -52,30 +46,36 @@ class DashboardActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListene
             bottomSheetDialog.show()
         }
 
-
     }
 
-    private fun pickDate() {
-        binding.datePicker.setOnClickListener {
-            pickDateCalender()
 
-            DatePickerDialog(this, this, year,month,day).show()
+//    }
+//    override fun onBackPressed() {
+//
+//    }
+
+    private fun monthRadioButtons(){
+        for(i in 1..5){
+            val buttonText = "Month $i"
+            createRadioButton(i,buttonText)
         }
     }
 
-    private fun pickDateCalender() {
-        val Cal : Calendar = Calendar.getInstance()
-        day = Cal.get(Calendar.DAY_OF_MONTH)
-        month = Cal.get(Calendar.MONTH)
-        year = Cal.get(Calendar.YEAR)
-    }
-
-    override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOmonth: Int) {
-        savedDay = dayOmonth
-        savedMonth = month
-        savedYear = year
-
-        binding.etDate.text = "$savedDay - $savedMonth - $savedYear "
+    @SuppressLint("SetTextI18n", "UseCompatLoadingForColorStateLists", "ResourceType")
+    private fun createRadioButton(id:Int,text:String){
+        val radioBtn = RadioButton(this)
+        val params = RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,RadioGroup.LayoutParams.WRAP_CONTENT)
+        radioBtn.id = id
+        radioBtn.setBackgroundResource(R.drawable.radio_selector)
+        radioBtn.setTextColor(resources.getColorStateList(R.drawable.text_color))
+        radioBtn.text = text
+        radioBtn.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        radioBtn.buttonDrawable = null
+        radioBtn.setPadding(30)
+        radioBtn.minWidth = 200
+        params.setMargins(20)
+        radioBtn.layoutParams = params
+        binding.rgMonthList.addView(radioBtn)
     }
 
     private fun streetFun() {
@@ -103,4 +103,5 @@ class DashboardActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListene
         val adapter = ArrayAdapter(this, R.layout.city_list, items)
         binding.cityDropdown.setAdapter(adapter)
     }
+
 }

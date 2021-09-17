@@ -36,7 +36,5 @@ class LandingActivity : AppCompatActivity() {
     private fun registerActivity() {
         startActivity(Intent(this, RegisterActivity::class.java))
     }
-
-
 }
 
