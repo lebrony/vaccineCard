@@ -50,7 +50,9 @@
         Government of United Republic of Tanzania accountable for any adverse event that may
         happen after being vaccinated.</string>
     <string name="i_agree">I Agree</string>
-    <string name="month">Month</string>
+    <string name="month_selector_title">Month</string>
+    <string name="date_selector_title">Date</string>
+    <string name="time_selector_title">Time</string>
 
     <string-array name="city_list">
         <item>Dar Es Salaam</item>

@@ -33,6 +33,8 @@ class DashboardActivity : AppCompatActivity() {
         streetFun()
         hopsitalFun()
         monthRadioButtons()
+        timeRadioButtons()
+        dateRadioButtons()
         binding.scheduleButton.setOnClickListener {
             val bottomSheetDialog = BottomSheetDialog(
                 this@DashboardActivity, R.style.BottomSheetDialogTheme
@@ -55,14 +57,28 @@ class DashboardActivity : AppCompatActivity() {
 //    }
 
     private fun monthRadioButtons(){
-        for(i in 1..5){
+        for(i in 1..12){
             val buttonText = "Month $i"
-            createRadioButton(i,buttonText)
+            createRadioButton(i,buttonText,binding.rgMonthList)
+        }
+    }
+    private fun dateRadioButtons(){
+        for(i in 1..31){
+            val buttonText = "$i"
+            createRadioButton(i,buttonText,binding.rgDateList)
+        }
+    }
+    private fun timeRadioButtons(){
+        for(i in 1..18){
+            val buttonText = "Time $i"
+            createRadioButton(i,buttonText,binding.rgTimeList)
         }
     }
 
+
+
     @SuppressLint("SetTextI18n", "UseCompatLoadingForColorStateLists", "ResourceType")
-    private fun createRadioButton(id:Int,text:String){
+    private fun createRadioButton(id:Int,text:String,radioGroup: RadioGroup){
         val radioBtn = RadioButton(this)
         val params = RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,RadioGroup.LayoutParams.WRAP_CONTENT)
         radioBtn.id = id
@@ -75,7 +91,7 @@ class DashboardActivity : AppCompatActivity() {
         radioBtn.minWidth = 200
         params.setMargins(20)
         radioBtn.layoutParams = params
-        binding.rgMonthList.addView(radioBtn)
+        radioGroup.addView(radioBtn)
     }
 
     private fun streetFun() {
