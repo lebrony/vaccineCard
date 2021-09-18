@@ -90,170 +90,220 @@
             android:text="@string/reschedule"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/midContent"
+
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guideline14"
+        app:layout_constraintRight_toRightOf="@id/guideline15"
         android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/topContent">
 
-        app:layout_constraintTop_toBottomOf="@id/topContent"
-        app:layout_constraintLeft_toLeftOf="@id/guideline14"
-        app:layout_constraintRight_toRightOf="@id/guideline15"
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/city_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/city"
-            android:textColorHint="@color/primary"
-            app:boxStrokeColor="@color/primary"
-            app:layout_constraintLeft_toLeftOf="@id/guideline10"
-            app:layout_constraintRight_toRightOf="@id/guideline11"
-            app:layout_constraintTop_toBottomOf="@id/midContent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+            android:layout_height="wrap_content">
 
-            <AutoCompleteTextView
-                android:id="@+id/city_dropdown"
-                android:layout_width="match_parent"
-                android:textColor="@color/black"
+            <LinearLayout
+                android:id="@+id/midContent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                />
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/guideline19"
+                app:layout_constraintStart_toEndOf="@id/guideline18"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/district_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/district_name"
-            android:textColorHint="@color/primary"
-            app:boxStrokeColor="@color/primary"
-            app:layout_constraintLeft_toLeftOf="@id/guideline10"
-            app:layout_constraintRight_toRightOf="@id/guideline11"
-            app:layout_constraintTop_toBottomOf="@id/midContent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/city_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/city"
+                    android:textColorHint="@color/primary"
+                    app:boxStrokeColor="@color/primary"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline10"
+                    app:layout_constraintRight_toRightOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/midContent">
 
-            <AutoCompleteTextView
-                android:id="@+id/district_dropdown"
-                android:layout_width="match_parent"
+                    <AutoCompleteTextView
+                        android:id="@+id/city_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/district_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/district_name"
+                    android:textColorHint="@color/primary"
+                    app:boxStrokeColor="@color/primary"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline10"
+                    app:layout_constraintRight_toRightOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/midContent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/district_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/hosp_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hospital_name"
+                    android:textColorHint="@color/primary"
+                    app:boxStrokeColor="@color/primary"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline10"
+                    app:layout_constraintRight_toRightOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/midContent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/hospital_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/street_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/street_name"
+                    android:textColorHint="@color/primary"
+                    app:boxStrokeColor="@color/primary"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline10"
+                    app:layout_constraintRight_toRightOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/midContent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/street_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sub_footer"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="none"
-                />
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/guideline19"
+                app:layout_constraintStart_toEndOf="@id/guideline18"
+                app:layout_constraintTop_toBottomOf="@id/midContent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/month_selector_title" />
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioGroup
+                            android:id="@+id/rg_month_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/date_selector_title" />
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/hosp_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hospital_name"
-            android:textColorHint="@color/primary"
-            app:boxStrokeColor="@color/primary"
-            app:layout_constraintLeft_toLeftOf="@id/guideline10"
-            app:layout_constraintRight_toRightOf="@id/guideline11"
-            app:layout_constraintTop_toBottomOf="@id/midContent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                        <RadioGroup
+                            android:id="@+id/rg_date_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/time_selector_title" />
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <AutoCompleteTextView
-                android:id="@+id/hospital_dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="none"
-                />
+                        <RadioGroup
+                            android:id="@+id/rg_time_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/street_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/street_name"
-            android:textColorHint="@color/primary"
-            app:boxStrokeColor="@color/primary"
-            app:layout_constraintLeft_toLeftOf="@id/guideline10"
-            app:layout_constraintRight_toRightOf="@id/guideline11"
-            app:layout_constraintTop_toBottomOf="@id/midContent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-
-            <AutoCompleteTextView
-                android:id="@+id/street_dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="none"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/midContent"
-        app:layout_constraintLeft_toLeftOf="@id/guideline14"
-        app:layout_constraintRight_toRightOf="@id/guideline15"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:id="@+id/sub_footer">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/month_selector_title"/>
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rg_month_list"
-            android:orientation="horizontal"/>
-        </HorizontalScrollView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_selector_title"/>
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <RadioGroup
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rg_date_list"
-                android:orientation="horizontal"/>
-        </HorizontalScrollView>
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/time_selector_title"/>
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <RadioGroup
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="0dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rg_time_list"
-                android:orientation="horizontal"/>
-        </HorizontalScrollView>
-    </LinearLayout>
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="0dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/schedule_button"
-        android:layout_width="200dp"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="@string/schedule"
-        android:drawableEnd="@drawable/ic_schedule"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/primary"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/sub_footer"
-        app:layout_constraintLeft_toLeftOf="@id/guideline14"
-        app:layout_constraintRight_toRightOf="@id/guideline15" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="0dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/schedule_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary"
+                android:drawableEnd="@drawable/ic_schedule"
+                android:padding="12dp"
+                android:text="@string/schedule"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/guideline19"
+                app:layout_constraintStart_toEndOf="@id/guideline18"
+                app:layout_constraintTop_toBottomOf="@id/sub_footer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

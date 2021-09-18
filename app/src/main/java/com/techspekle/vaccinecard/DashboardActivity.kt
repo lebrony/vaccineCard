@@ -3,16 +3,12 @@ package com.techspekle.vaccinecard
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.core.view.setMargins
 import androidx.core.view.setPadding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.techspekle.vaccinecard.databinding.ActivityDashboardBinding
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.indexOf as indexOf1
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDashboardBinding
@@ -114,7 +110,7 @@ class DashboardActivity : AppCompatActivity() {
 
 
     @SuppressLint("SetTextI18n", "UseCompatLoadingForColorStateLists", "ResourceType")
-    private fun createRadioButton(id:Int,text:String,radioGroup: RadioGroup,initalSelcted:Int){
+    private fun createRadioButton(id:Int, text:String, radioGroup: RadioGroup, initialSelected:Int){
         val radioBtn = RadioButton(this)
         val params = RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,RadioGroup.LayoutParams.WRAP_CONTENT)
         radioBtn.id = id
@@ -126,7 +122,7 @@ class DashboardActivity : AppCompatActivity() {
         radioBtn.setPadding(30)
         radioBtn.minWidth = 200
         params.setMargins(20)
-        radioBtn.isChecked = id == initalSelcted
+        radioBtn.isChecked = id == initialSelected
         radioBtn.layoutParams = params
         radioGroup.addView(radioBtn)
     }
