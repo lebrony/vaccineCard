@@ -1,27 +1,26 @@
 package com.techspekle.vaccinecard
 
 import android.annotation.SuppressLint
-import android.app.DatePickerDialog
-import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.marginRight
 import androidx.core.view.setMargins
 import androidx.core.view.setPadding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.techspekle.vaccinecard.databinding.ActivityDashboardBinding
-import java.time.Month
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.indexOf as indexOf1
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDashboardBinding
+    private val months = listOf("January","February","March","April","May","June","July","August","September","October","November","December")
+    private val times = listOf("8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM")
+    private val now: Calendar = Calendar.getInstance()
+    private val currentMonth = now.get(Calendar.MONTH)
+    private val currentDate = now.get(Calendar.DATE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
@@ -57,28 +56,38 @@ class DashboardActivity : AppCompatActivity() {
 //    }
 
     private fun monthRadioButtons(){
-        for(i in 1..12){
-            val buttonText = "Month $i"
-            createRadioButton(i,buttonText,binding.rgMonthList)
+        for(monthIndex in currentMonth until currentMonth + 3 ){
+            var curIndex = monthIndex
+            if(monthIndex > months.size -1 ){
+                curIndex = monthIndex - months.size
+            }
+            val id = curIndex
+            val buttonText = months[curIndex]
+            createRadioButton(id,buttonText,binding.rgMonthList,currentMonth)
         }
     }
     private fun dateRadioButtons(){
-        for(i in 1..31){
-            val buttonText = "$i"
-            createRadioButton(i,buttonText,binding.rgDateList)
+        for(dateIndex in currentDate until 30 + currentDate){
+            var curIndex = dateIndex
+            if(dateIndex > 30){
+                curIndex = dateIndex - 30
+            }
+            val id = curIndex
+            val buttonText = "$curIndex"
+            createRadioButton(id,buttonText,binding.rgDateList,currentDate)
         }
     }
     private fun timeRadioButtons(){
-        for(i in 1..18){
-            val buttonText = "Time $i"
-            createRadioButton(i,buttonText,binding.rgTimeList)
+        for(time in times){
+            val id:Int = times.indexOf(time)
+            createRadioButton(id,time,binding.rgTimeList,0)
         }
     }
 
 
 
     @SuppressLint("SetTextI18n", "UseCompatLoadingForColorStateLists", "ResourceType")
-    private fun createRadioButton(id:Int,text:String,radioGroup: RadioGroup){
+    private fun createRadioButton(id:Int,text:String,radioGroup: RadioGroup,initalSelcted:Int){
         val radioBtn = RadioButton(this)
         val params = RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,RadioGroup.LayoutParams.WRAP_CONTENT)
         radioBtn.id = id
@@ -90,6 +99,7 @@ class DashboardActivity : AppCompatActivity() {
         radioBtn.setPadding(30)
         radioBtn.minWidth = 200
         params.setMargins(20)
+        radioBtn.isChecked = id == initalSelcted
         radioBtn.layoutParams = params
         radioGroup.addView(radioBtn)
     }
