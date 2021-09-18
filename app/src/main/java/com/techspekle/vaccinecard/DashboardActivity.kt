@@ -21,7 +21,6 @@ class DashboardActivity : AppCompatActivity() {
     private val now: Calendar = Calendar.getInstance()
     private val currentMonth = now.get(Calendar.MONTH)
     private val currentDate = now.get(Calendar.DATE)
-
     private var selectedDate:Int = currentDate
     private var selectedMonth:Int = currentMonth
     private var selectedTime:Int = 0
@@ -87,10 +86,18 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
     private fun dateRadioButtons(){
-        for(dateIndex in currentDate until 30 + currentDate){
+        var numberOfDates = 31
+        // TODO: figure out update list of dates, the one below works, just doesn't redraw on change
+        //taking indexes of February, April, September, June and November -- Assuming Feb is 30 days
+        val monthsWith30Days = listOf(1,3,5,8,10)
+        if(selectedMonth in monthsWith30Days){
+            numberOfDates = 30
+        }
+
+        for(dateIndex in currentDate until numberOfDates + currentDate){
             var curIndex = dateIndex
-            if(dateIndex > 30){
-                curIndex = dateIndex - 30
+            if(dateIndex > numberOfDates){
+                curIndex = dateIndex - numberOfDates
             }
             val id = curIndex
             val buttonText = "$curIndex"
