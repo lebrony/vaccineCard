@@ -21,6 +21,11 @@ class DashboardActivity : AppCompatActivity() {
     private val now: Calendar = Calendar.getInstance()
     private val currentMonth = now.get(Calendar.MONTH)
     private val currentDate = now.get(Calendar.DATE)
+
+    private var selectedDate:Int = currentDate
+    private var selectedMonth:Int = currentMonth
+    private var selectedTime:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
@@ -31,25 +36,40 @@ class DashboardActivity : AppCompatActivity() {
         districtFun()
         streetFun()
         hopsitalFun()
+
+        //to display the radio buttons for month,date and time
+        //TODO: Refactor the calls to one function
         monthRadioButtons()
         timeRadioButtons()
         dateRadioButtons()
+
+        //listeners for the radioGroups of Month,Date and Time
+
+        binding.rgMonthList.setOnCheckedChangeListener { _, checkedId -> selectedMonth = checkedId }
+        binding.rgDateList.setOnCheckedChangeListener { _, checkedId -> selectedDate = checkedId }
+        binding.rgTimeList.setOnCheckedChangeListener { _, checkedId -> selectedTime = checkedId }
+
         binding.scheduleButton.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog(
-                this@DashboardActivity, R.style.BottomSheetDialogTheme
-            )
+//            val bottomSheetDialog = BottomSheetDialog(
+//                this@DashboardActivity, R.style.BottomSheetDialogTheme
+//            )
+//
+//            val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
+//                R.layout.layout_bottom_sheet,
+//                findViewById<LinearLayout>(R.id.bottom_sheet)
+//            )
+//
+//            bottomSheetDialog.show()
 
-            val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
-                R.layout.layout_bottom_sheet,
-                findViewById<LinearLayout>(R.id.bottom_sheet)
-            )
-
-            bottomSheetDialog.show()
+            //TODO: use the toast format to understand how to pull data
+            val toastText = "SelectedMonth: ${months[selectedMonth]}, SelectedDate: $selectedDate, SelectedTime: ${times[selectedTime]}"
+            Toast.makeText(this,toastText,Toast.LENGTH_LONG).show()
         }
 
     }
 
 
+    //TODO: Adam, this is how to override the onBackPressed
 //    }
 //    override fun onBackPressed() {
 //
@@ -63,7 +83,7 @@ class DashboardActivity : AppCompatActivity() {
             }
             val id = curIndex
             val buttonText = months[curIndex]
-            createRadioButton(id,buttonText,binding.rgMonthList,currentMonth)
+            createRadioButton(id,buttonText,binding.rgMonthList,selectedMonth)
         }
     }
     private fun dateRadioButtons(){
@@ -74,13 +94,13 @@ class DashboardActivity : AppCompatActivity() {
             }
             val id = curIndex
             val buttonText = "$curIndex"
-            createRadioButton(id,buttonText,binding.rgDateList,currentDate)
+            createRadioButton(id,buttonText,binding.rgDateList,selectedDate)
         }
     }
     private fun timeRadioButtons(){
         for(time in times){
             val id:Int = times.indexOf(time)
-            createRadioButton(id,time,binding.rgTimeList,0)
+            createRadioButton(id,time,binding.rgTimeList,selectedTime)
         }
     }
 
